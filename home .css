@@ -1,0 +1,168 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+body{
+    background: url(https://scontent.fcrk2-2.fna.fbcdn.net/v/t39.30808-6/465855865_122144521118319525_8075690859805485354_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFaYsspwgRhNRd8twa8UbKA8-UmqFd6ruPz5SaoV3qu43KriakTODruA1GIDV1wfcxhP3C2E0OVcsNF1z35GfAV&_nc_ohc=HMP-GI_FX5MQ7kNvgGvDnuX&_nc_zt=23&_nc_ht=scontent.fcrk2-2.fna&_nc_gid=AckoKXoZjv-2qSRd69FjTfk&oh=00_AYD3-ShkQLUpV50Z89EZKJavCbqaFpXVoSR0rQm_StdFSw&oe=673FAEE9);
+}
+
+/* Header */
+.main-header {
+    background-color: rgb(165, 135, 105) ;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar a {
+    text-decoration: none;
+    color:rgb(247, 245, 245);
+    margin: 0 15px;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color:wheat;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('coffee-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-align: center;
+}
+
+.hero-content {
+    background-color: rgba(238, 232, 232, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    padding: 15px 30px;
+    background-color:white;
+    color: rgb(10, 7, 7);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #D35400;
+}
+
+/* Features Section */
+.features {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #2C3E50;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.card {
+    background-color: bisque;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    background-color: bisque;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: black;
+    background-color: bisque;
+}
+
+/* Footer */
+.footer {
+    background-color: rgb(182, 163, 129);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    color: #E67E22;
+}

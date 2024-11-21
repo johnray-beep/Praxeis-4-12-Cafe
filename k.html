@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu Praxeis 4:12 Cafe</title>
+    <link rel="stylesheet" href="g.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.querySelector('.search-bar');
+            const products = document.querySelectorAll('.product');
+    
+            searchInput.addEventListener('input', () => {
+                const filter = searchInput.value.toLowerCase();
+                products.forEach(product => {
+                    const productName = product.querySelector('h3').textContent.toLowerCase();
+                    if (productName.includes(filter)) {
+                        product.style.display = "";
+                    } else {
+                        product.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cartIcon = document.getElementById("cart-icon");
+        const addToOrderButtons = document.querySelectorAll(".product button");
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || []; // Initialize cart from localStorage
+
+        // Function to add an item to the cart
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            localStorage.setItem("cart", JSON.stringify(cart)); // Save to localStorage
+        }
+
+        // Attach click events to "Add to Order" buttons
+        addToOrderButtons.forEach((button) => {
+            button.addEventListener("click", (event) => {
+                const productElement = event.target.closest(".product");
+                const productName = productElement.querySelector("h3").textContent;
+                const productPrice = productElement.querySelector("p").textContent;
+
+                addToCart(productName, productPrice);
+                alert(`${productName} has been added to your cart.`);
+            });
+        });
+
+        // Redirect to cart page on cart icon click
+        cartIcon.addEventListener("click", () => {
+            window.location.href = "cart.html"; // Redirect to cart.html
+        });
+    });
+</script>
+
+
+    
+    <header class="main-header">
+        <div class="container">
+            <div class="icons">
+                <i id="cart-icon" style="cursor: pointer;">🛒</i>
+
+                
+            </div>
+            <form action="search" method="GET" class="search-form">
+                <input type="text" name="query" placeholder="Search products..." class="search-bar">
+                <button type="submit">Search</button>
+            </form>
+            <h1 class="logo">Praxeis 4:12 Cafe </h1>
+            <nav class="navbar">
+                <a href="home.html">HOME</a>
+                <a href="k.html" class="active">MENU</a>
+                <a href="n.html">ABOUT</a>
+                <a href="blog.html">BLOGS</a>
+                <a href="team.html">TEAM</a>
+            </nav>
+        </div>
+    </header>
+    
+    
+    
+    <main class="content">
+        <div class="product-container">
+            <h1>Drinks Menu</h1>
+            <div class="products-grid">
+                <!-- Main Products -->
+                <div class="product">
+                    <img src="https://scontent.fcrk4-1.fna.fbcdn.net/v/t1.15752-9/462568113_2007566793084050_1460545327911494665_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFBC5p9VMU7uY-yXtYl5kzfdtTKfnefMFd21Mp-d58wV5zWjXYjgyUx1NW6--iQFv6hZBbg8UYEF6zP2zw8j9mV&_nc_ohc=ncW6OYE43YQQ7kNvgETsBG1&_nc_zt=23&_nc_ht=scontent.fcrk4-1.fna&oh=03_Q7cD1QGdoHbcaBJ1UPvsA4y06vGJNJefw9CohaLlnYob9FVDVg&oe=67625D9F" alt="Product 1">
+                    <h3>Spanish Latte</h3>
+                    <p>100₱ </p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.fcrk4-1.fna.fbcdn.net/v/t1.15752-9/462547633_981217130484461_3455045563498791678_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFiCZ-H1AcsdfOeZKmkaJmI1CDV9fAGGrbUINX18AYats7USAt2_K4KAyqBQToyiIkyin7LSYtjN4qunsSdWv0h&_nc_ohc=_JDkrMmO6o8Q7kNvgGzSb83&_nc_zt=23&_nc_ht=scontent.fcrk4-1.fna&oh=03_Q7cD1QGsfS6nNIxhMHLvie-loxR171_yhZ5E3M2j0elqMa8pQw&oe=67624EDC" alt="Product 2">
+                    <h3>Iced Blended Matcha</h3>
+                    <p>125₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.fcrk2-4.fna.fbcdn.net/v/t1.15752-9/465077406_1120539309740488_5551553445999137666_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHx2anumKRpByUO01miKaX9QQXBy119lmJBBcHLXX2WYipLImjnYybw-li--GofKC-5BoWCvah157fgP4txKigF&_nc_ohc=BC1JdIkj0pAQ7kNvgHm2Cxl&_nc_zt=23&_nc_ht=scontent.fcrk2-4.fna&oh=03_Q7cD1QHe4MvMWCS9_UusC9-NY9eGP4GS5rv5thQ5860zOAJ-LA&oe=67624215" alt="Product 3">
+                    <h3>Choco Berry</h3>
+                    <p>125₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.fcrk2-3.fna.fbcdn.net/v/t1.15752-9/462561830_1788918945227091_2676508094748726395_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHL3m74zn8lsp6iLBov93sLeEvv15BH6F54S-_XkEfoXkYZFl0y7qetFxVKGXWrMkTYaijzsrFYYACZ8oV8_-05&_nc_ohc=ZQRcGjl_dGYQ7kNvgHvtT0E&_nc_zt=23&_nc_ht=scontent.fcrk2-3.fna&oh=03_Q7cD1QFTE45McTb1RH1Q15ML8APefWz3jxv682H73cDqIRAfKA&oe=676234CE" alt="Product 4">
+                    <h3>Blue Berry Fizz</h3>
+                    <p>125₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src=" https://scontent.fmnl9-2.fna.fbcdn.net/v/t39.30808-6/465920059_122144452892319525_5538051702163421456_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGn215z3yJkgwjC2NL5AYyvvNOZMuuoya6805ky66jJrtkRlWsy0EmQoy29sVRMftghgDh1iIUMYZSBHDznP55P&_nc_ohc=eryX5HZqO7cQ7kNvgH_cJsw&_nc_zt=23&_nc_ht=scontent.fmnl9-2.fna&_nc_gid=AaPfph112TKujQizrMAMNHk&oh=00_AYAXhd3GUQbtHDGpoUgM5ThWu9rCX0kGyqzYltatqT4uTQ&oe=6743AF75" alt="Product 5">
+                    <h3>Caramel Macchiato</h3>
+                    <p>$10.00₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462554064_1473756926918300_7702636540548183132_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeF5Yf5LTVhwy9bgUMLQZ4IyhOd1p3HALEGE53WnccAsQSc7IE6LJSr2wE-DTOvfzHcT6nim-MOBLH-vBeC8PZ1w&_nc_ohc=XN1qv3xX1U4Q7kNvgFuutum&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QEp1Ej69D4zjtbS1GF1rjloaXN1lj1WuEbI3pdEck9fmg&oe=67623FA4" alt="Product 6">
+                    <h3>Blue Berry Milk</h3>
+                    <p>$10.00₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462555140_1766792077410847_3788960454048008160_n.jpg?stp=dst-jpg_s480x480&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFBA2rqbPOIsZMeWmvGq3H6ArT1vwQj-b8CtPW_BCP5v1mOaW3OdhkZI2bnutm-I1NaZGwhBJrvv5asxRo2hy_Y&_nc_ohc=Rr6j-1DHvZoQ7kNvgFcrTlc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QGhWYlfduUEw_iA4LfoRvgH4NIifvkKqxcoOErpYr_ABA&oe=67625304" alt="Side Dish 7">
+                    <h3>Strawberry Milk</h3>
+                    <p>$4.00₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.fcrk4-2.fna.fbcdn.net/v/t39.30808-6/465059851_122143161434319525_7436703512675789033_n.jpg?stp=c0.106.960.960a_cp6_dst-jpg_s206x206&_nc_cat=109&ccb=1-7&_nc_sid=50ad20&_nc_eui2=AeHcK6xalKLeW1z6gCHqZ6tyJElyXproaLgkSXJemuhouF5xpCJs2PR8CZki9lM5WAKUZg10ltAUsFaOJMMjj25r&_nc_ohc=IoAYzvaWW1QQ7kNvgEPsSCK&_nc_zt=23&_nc_ht=scontent.fcrk4-2.fna&_nc_gid=AedXI-9qQtaHTj2iX4VraSR&oh=00_AYC4QknXkNnxswbloYdnwQH3JIlCSnfP4VA1ghfYHSL7oQ&oe=673FCAB2" alt="Side Dish 8">
+                    <h3>Cappuccino</h3>
+                    <p>200₱</p>
+                    <button>Add to Order</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Side Dishes Section -->
+        <div class="product-container">
+            <h1>Food Menu</h1>
+            <div class="products-grid">
+                <div class="product">
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462570712_463664952957963_1940781512701699235_n.jpg?stp=dst-jpg_s640x640&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFgMXuEMP3wUOjaNHbGR2B2rIHhX5mDVQ2sgeFfmYNVDZWgpUFVZaR12PaJv2O8Py3skrkBGln-rqecKLxsmyzD&_nc_ohc=tJmaCo7VZhMQ7kNvgHnXweq&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QF9mWQiSAyFYSWTKjrHwe8v6fc9avL-ir-vZA4WtQ8cGQ&oe=676569A9" alt="Side Dish 1">
+                    <h3>Ube Chiffon</h3>
+                    <p>228₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462547542_1083611890159997_8093184394911204858_n.jpg?stp=dst-jpg_s640x640&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHzHIXXbk01KmpjeI_VdH36Amsc26sr-PACaxzbqyv48NVCYQFHn8IcqGe0MyKsXyjhIJ23fv8bi2VIwuN853X7&_nc_ohc=nJ_vrNskm0sQ7kNvgF-S9ZE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QHAw8Iqcu6MFlBu41K63535ZXKDc6rqnMLBxytrkrI-tg&oe=6765636E" alt="Side Dish 2">
+                    <h3>S'mores</h3>
+                    <p>174₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462573422_1143939347369329_4045462513853889998_n.jpg?stp=dst-jpg_s640x640&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGeWZh06lcRSAFHU3sESYB_T41sS-MOiP5PjWxL4w6I_hPgx3SvNHvKt5UW_TD4_3ZkfRkOD0Echwws9Lb1_9I1&_nc_ohc=rdw_p8tQ7lwQ7kNvgFCEGqG&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QHVPkH5C-SJyNuSH3K23P953M_nzhLZI3ryxfYixTPDEw&oe=67654DAA" alt="Side Dish 3">
+                    <h3>Biscoff</h3>
+                    <p>188₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462543382_1265784751212697_4470148565086084675_n.jpg?stp=dst-jpg_s640x640&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeF4qnsQRPi_qqidMBYW1ik96E8ZF4NtA7voTxkXg20Du9rcFq8Jos2eQ0OxpB0thOaoBGZbYgR-9-RTX-Ar81JW&_nc_ohc=FbBRE37B3W0Q7kNvgGVPNQw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QGpRUnxwliXLCRKu5cgeA_OSMLfS14WionE7lqlByVm6A&oe=67655805" alt="Side Dish 4">
+                    <h3>Nutella alcapone</h3>
+                    <p>174₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462556860_8704753549611767_5635290476899405410_n.jpg?stp=dst-jpg_s640x640&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGHk66MJyYW8LcP25sFGZku_xYXTqDKoLj_FhdOoMqguAG5Qi3_9til6Zdrw2lPbx72irYl7pc0710orygG9EXa&_nc_ohc=sR1uqajlt5YQ7kNvgGSrByE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QGq1V3NTNrAknNkYyhCFBUxLrJOuhERQ-2-ZLI5RQLzVg&oe=67653803" alt="Side Dish 5">
+                    <h3>
+                        strawberry and cream</h3>
+                    <p>161₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462566042_1116502096655141_4452051514966956197_n.jpg?stp=dst-jpg_s640x640&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeE0nMp33kEtR6G03vfKEeOI_hIgm3LUK7n-EiCbctQruV18Ka12-DYhMIv7CShgwolPql0YkJOw07aARbqbj47n&_nc_ohc=OqIz684Od3kQ7kNvgGp4vJH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QGrn-uNnj14GWEcMvwugqJna1iTYeOI7ChwS49r9YWMeQ&oe=67654DA3" alt="Side Dish 6">
+                    <h3>Matcha</h3>
+                    <p>147₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.fcrk4-1.fna.fbcdn.net/v/t39.30808-6/464804115_122143125314319525_4390593870302464730_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEM4W9OJE6yehS1tRCFSMuMilLMSnIgE8CKUsxKciATwN6DHv5ji4oSwHQFZyv07Kscq2QUwh92aGi_O5TwYjz6&_nc_ohc=moUfRkcuSskQ7kNvgG7jHRE&_nc_zt=23&_nc_ht=scontent.fcrk4-1.fna&_nc_gid=A7CeRHNpRsqC1WXrxhKJF_2&oh=00_AYBbEJ6cKaRJjsrlZT8jmy5PUzXfXawlUjHukbzsX9SrGw&oe=673FC72D" alt="Side Dish 7">
+                    <h3>Assorted Cake</h3>
+                    <p>200₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <div class="product">
+                    <img src="https://scontent.fcrk2-4.fna.fbcdn.net/v/t39.30808-6/464709286_122143125266319525_2469830848195121752_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG8ifyJSAMXUxfjKQcibIEezJbNKzMP08vMls0rMw_Ty55pA1rUoWh1kIY0kAop6ZR-PC4w5OnFNI-sEfC8RfpH&_nc_ohc=_5Pelb4C3T8Q7kNvgH7Ubro&_nc_zt=23&_nc_ht=scontent.fcrk2-4.fna&_nc_gid=AoDz4-KAD9jATYyqz9oY31j&oh=00_AYD8io-ZnR0T9mWdOUIDJeuD2SOV5TXRNzUxTDxXe2SaDQ&oe=673FA55D" alt="Side Dish 8">
+                    <h3>Blueberry Cheesecake</h3>
+                    <p>214₱</p>
+                    <button>Add to Order</button>
+                </div>
+                <!-- Add more side dishes here -->
+            </div>
+        </div>
+    </main>
+    
+                       
+    <footer class="contact-info">
+        <h2>Contact Us</h2>
+        <p><strong>Phone:</strong> +123-456-7890</p>
+        <p><strong>Email:</strong>contact@praxeis412cafe.com</p>
+        <p><strong>facabook:</strong> @praxeis412cafe</p>
+        <p><strong>Address:</strong>bagong bayan capas</p>
+        <p>Feel free to reach out to us with any questions or concerns!</p>
+    </footer>
+</main>
+
+</html>
+
+</body>
+</html>
